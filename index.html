@@ -34,7 +34,7 @@ border-bottom:1px solid #d4af37;
 nav{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:25px;
 flex-wrap:wrap;
 }
 
@@ -47,58 +47,74 @@ font-weight:bold;
 /* HERO */
 .hero{
 min-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.90)),
-url('LOBO TORO.png');
-background-size:cover;
-background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.90)),
+url('LOBO TORO.png');
+background-size:cover;
+background-position:center;
 }
 
-.hero-content{
-max-width:1000px;
+.hero-box{
+max-width:900px;
 }
 
 .logo{
-width:260px;
-margin-bottom:20px;
+width:240px;
 border-radius:20px;
+margin-bottom:20px;
 }
 
-.hero h1{
-font-size:4rem;
+h1{
+font-size:3.2rem;
 color:#d4af37;
-text-shadow:0 0 20px rgba(212,175,55,.5);
 }
 
-.hero p{
+.sub{
 font-size:1.2rem;
-margin-top:15px;
+margin-top:10px;
+color:#ccc;
 }
 
-/* PRICES */
-.old-price{
-font-size:1.8rem;
-text-decoration:line-through;
-color:#999;
+/* METRICS */
+.metrics{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 margin-top:20px;
 }
 
-.new-price{
-font-size:4.5rem;
-font-weight:bold;
-color:#d4af37;
+.metric{
+background:#111;
+border:1px solid #333;
+padding:15px 20px;
+border-radius:12px;
+min-width:160px;
 }
 
-/* BUTTON */
+.metric h3{
+color:#d4af37;
+font-size:1.5rem;
+}
+
+/* COUNTDOWN */
+.countdown{
+font-size:2rem;
+color:#d4af37;
+margin-top:20px;
+font-weight:bold;
+}
+
+/* BUTTONS */
 .btn{
 display:inline-block;
 margin:10px;
-padding:18px 35px;
+padding:15px 30px;
 background:#d4af37;
 color:#000;
 font-weight:bold;
@@ -108,12 +124,12 @@ transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-4px);
+transform:translateY(-3px);
 }
 
 /* SECTIONS */
 .section{
-padding:90px 8%;
+padding:80px 8%;
 }
 
 .title{
@@ -123,6 +139,7 @@ color:#d4af37;
 margin-bottom:40px;
 }
 
+/* MODULES */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -131,9 +148,20 @@ gap:20px;
 
 .card{
 background:#111;
+border:1px solid #333;
 padding:25px;
-border:1px solid #d4af37;
 border-radius:15px;
+transition:.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+border-color:#d4af37;
+}
+
+.card h3{
+color:#d4af37;
+margin-bottom:10px;
 }
 
 /* HIGHLIGHT */
@@ -143,52 +171,6 @@ color:#000;
 padding:40px;
 border-radius:20px;
 text-align:center;
-}
-
-/* COUNTDOWN */
-.countdown{
-font-size:2rem;
-font-weight:bold;
-color:#d4af37;
-margin-top:20px;
-}
-
-/* SLOTS */
-.slots{
-margin-top:20px;
-font-size:1.2rem;
-color:#fff;
-}
-
-.bar{
-width:100%;
-height:12px;
-background:#222;
-border-radius:20px;
-overflow:hidden;
-margin-top:10px;
-}
-
-.bar-fill{
-height:100%;
-width:0%;
-background:#d4af37;
-transition:1s;
-}
-
-/* TESTIMONIALS */
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.testimonial{
-background:#111;
-border:1px solid #333;
-padding:20px;
-border-radius:15px;
-font-style:italic;
 }
 
 /* FOOTER */
@@ -211,27 +193,8 @@ color:#fff;
 font-weight:bold;
 }
 
-/* CTA MOBILE */
-.cta-mobile{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#d4af37;
-color:#000;
-text-align:center;
-padding:15px;
-font-weight:bold;
-display:none;
-}
-
 @media(max-width:768px){
-
-.hero h1{font-size:2.5rem;}
-.new-price{font-size:3rem;}
-.logo{width:200px;}
-.cta-mobile{display:block;}
-
+h1{font-size:2.2rem;}
 }
 
 </style>
@@ -243,97 +206,113 @@ display:none;
 <header>
 <nav>
 <a href="#inicio">Inicio</a>
+<a href="#modulos">Módulos</a>
 <a href="#premium">Premium</a>
 <a href="#mentor">Mentor</a>
-<a href="#academia">Academia</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
 
-<div class="hero-content">
+<div class="hero-box">
 
 <img src="premium.jpeg" class="logo">
 
 <h1>CREATRADERS ACADEMY</h1>
 
-<p>Smart Money Concepts • Psicotrading • Trading Institucional</p>
+<p class="sub">
+Smart Money Concepts • Psicotrading • Trading Institucional
+</p>
 
-<div class="old-price">$500 USD</div>
-<div class="new-price">$50 USD</div>
+<!-- METRICS -->
+<div class="metrics">
 
-<p>🔥 Oferta activa por tiempo limitado</p>
+<div class="metric">
+<h3 id="users">49</h3>
+<p>Miembros activos</p>
+</div>
 
+<div class="metric">
+<h3>+12</h3>
+<p>Módulos completos</p>
+</div>
+
+<div class="metric">
+<h3>24/7</h3>
+<p>Acceso disponible</p>
+</div>
+
+</div>
+
+<!-- COUNTDOWN -->
 <div class="countdown" id="timer">24:00:00</div>
-
-<div class="slots">
-Solo <b>50 cupos disponibles</b>
-</div>
-
-<div class="bar">
-<div class="bar-fill" id="bar"></div>
-</div>
 
 <br>
 
 <a class="btn" href="https://www.paypal.com/ncp/payment/9H8PCK6FSA9XS" target="_blank">
-PAGAR AHORA
+ACCEDER AHORA
 </a>
 
-<a class="btn" href="#premium">
-VER BENEFICIOS
+<a class="btn" href="#modulos">
+VER MÓDULOS
 </a>
 
 </div>
 
 </section>
 
-<!-- BENEFICIOS -->
-<section class="section" id="premium">
+<!-- MODULOS -->
+<section class="section" id="modulos">
 
-<h2 class="title">LO QUE OBTIENES</h2>
+<h2 class="title">MÓDULOS DE LA ACADEMIA</h2>
 
 <div class="grid">
 
-<div class="card">📈 Smart Money Concepts</div>
-<div class="card">🧠 Psicotrading Diario</div>
-<div class="card">🎯 BOS / CHOCH</div>
-<div class="card">⚡ FVG + Liquidez</div>
-<div class="card">🔴 Operativas en Vivo</div>
-<div class="card">📚 Clases Grabadas</div>
-<div class="card">🚀 Indicador SMC Pro</div>
-<div class="card">👥 Comunidad VIP</div>
+<div class="card">
+<h3>Introducción SMC</h3>
+<p>Conceptos institucionales del mercado</p>
+</div>
+
+<div class="card">
+<h3>Estructura de Mercado</h3>
+<p>BOS, CHOCH y tendencias</p>
+</div>
+
+<div class="card">
+<h3>Liquidity & Manipulation</h3>
+<p>Cómo operan los bancos</p>
+</div>
+
+<div class="card">
+<h3>Fair Value Gaps</h3>
+<p>Zonas de desequilibrio</p>
+</div>
+
+<div class="card">
+<h3>Psicotrading</h3>
+<p>Control emocional del trader</p>
+</div>
+
+<div class="card">
+<h3>Gestión de Riesgo</h3>
+<p>Protege tu capital</p>
+</div>
 
 </div>
 
 </section>
 
-<!-- TESTIMONIOS -->
-<section class="section">
-
-<h2 class="title">RESULTADOS DE LA COMUNIDAD</h2>
-
-<div class="testimonials">
-
-<div class="testimonial">“Por fin entendí el mercado con SMC.”</div>
-<div class="testimonial">“El psicotrading cambió mi disciplina.”</div>
-<div class="testimonial">“Las sesiones en vivo son otro nivel.”</div>
-
-</div>
-
-</section>
-
-<!-- HIGHLIGHT -->
-<section class="section">
+<!-- PREMIUM -->
+<section class="section" id="premium">
 
 <div class="highlight">
 
-<h2>ACCESO FUNDADORES</h2>
+<h2>ACCESO PREMIUM FUNDADORES</h2>
 
-<h1>SOLO $50 USD</h1>
+<h1>$50 USD</h1>
 
-<p>Acceso de por vida a la academia</p>
+<p>Solo 50 cupos disponibles</p>
 
 </div>
 
@@ -350,24 +329,7 @@ VER BENEFICIOS
 <br>
 <p>Especialista en Smart Money Concepts y Psicotrading.</p>
 <br>
-<p>"La disciplina crea traders consistentes."</p>
-
-</div>
-
-</section>
-
-<!-- CTA FINAL -->
-<section class="section">
-
-<div class="highlight">
-
-<h2>DOMINA EL MERCADO Y TU MENTE</h2>
-
-<br>
-
-<a class="btn" href="https://www.paypal.com/ncp/payment/9H8PCK6FSA9XS">
-ACCEDER AHORA
-</a>
+<p>"El trading no es suerte, es disciplina."</p>
 
 </div>
 
@@ -381,41 +343,29 @@ ACCEDER AHORA
 WhatsApp
 </a>
 
-<!-- CTA MOBILE -->
-<div class="cta-mobile">
-ACCEDER POR $50 USD - CUPOS LIMITADOS
-</div>
-
 <script>
 
-// TIMER 24H
+/* TIMER 24H */
 let time = 24 * 60 * 60;
 
-function updateTimer(){
-let h = Math.floor(time / 3600);
-let m = Math.floor((time % 3600) / 60);
-let s = time % 60;
+setInterval(()=>{
+let h=Math.floor(time/3600);
+let m=Math.floor((time%3600)/60);
+let s=time%60;
 
-document.getElementById("timer").innerHTML =
+document.getElementById("timer").innerHTML=
 `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
 
-if(time > 0){
-time--;
-}
-}
+if(time>0)time--;
+},1000);
 
-setInterval(updateTimer,1000);
+/* USERS SIMULATION */
+let base = 49;
 
-// PROGRESS BAR (50 CUPOS)
-let remaining = 50;
-let total = 50;
-
-function updateBar(){
-let percent = ((total - remaining) / total) * 100;
-document.getElementById("bar").style.width = percent + "%";
-}
-
-updateBar();
+setInterval(()=>{
+let variation = Math.floor(Math.random()*2);
+document.getElementById("users").innerText = base + variation;
+},5000);
 
 </script>
 
